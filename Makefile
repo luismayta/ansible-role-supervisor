@@ -37,6 +37,7 @@ help:
 	@echo '    setup                     install requirements'
 	@echo ''
 	@make alias.help
+	@make docs.help
 	@make docker.help
 	@make test.help
 
