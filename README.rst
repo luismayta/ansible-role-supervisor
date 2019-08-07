@@ -19,7 +19,7 @@ Requirements:
 
 List of applications:
 
-- `Python 3.6.1`_
+- `Python 3.7.3`_
 - `Docker`_
 - `Docker Compose`_
 
@@ -83,7 +83,7 @@ this:
 License
 =======
 
-MIT
+Apache2
 
 Changelog
 =========
@@ -130,6 +130,6 @@ Made with :heart: :coffee: and :pizza: by `author`_ and `company`_.
 .. dependences
 .. _Supervisor: https://www.supervisor.com
 .. _Python: https://www.python.org
-.. _Python 3.6.1: https://www.python.org/downloads/release/python-361
+.. _Python 3.7.3: https://www.python.org/downloads/release/python-373
 .. _Docker: https://www.docker.com/
 .. _Docker Compose: https://docs.docker.com/compose/

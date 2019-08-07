@@ -19,6 +19,7 @@ docker-py = "*"
 pre-commit = "*"
 
 [packages]
+restview = "*"
 
 [requires]
 python_version = "3.7"
