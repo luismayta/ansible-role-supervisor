@@ -1,0 +1,7 @@
+---
+
+- name: Ensure supervisor is installed.
+  become: true
+  package:
+    name: supervisor
+    state: present

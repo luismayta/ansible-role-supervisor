@@ -1,0 +1,26 @@
+---
+#Two cases: we want the program to be stopped or to be running
+#1) If we want the program to be stopped, right-states-programs will stop it and
+# restart-programs will keep it stopped
+#2) If we want the program to be running with the right conf, we first need to stop it (right-states-programs)
+# and then to restart it.
+
+- name: restart supervisor
+  become: true
+  service: name=supervisor state=restarted enabled=true
+
+- name: reload supervisor
+  become: true
+  service: name=supervisor state=reloaded enabled=true
+
+- name: right-states-programs
+  supervisorctl: name={{ item.program }} state=stopped
+  with_items: "{{ supervisor_programs | default({}) }}"
+  when: supervisor_programs|length > 0
+  notify: restart-programs
+  changed_when: true #We need to call restart-programs every time
+
+- name: restart-programs
+  supervisorctl: name={{ item.program }} state={{ item.state|default('restarted') }}
+  with_items: "{{ supervisor_programs | default({}) }}"
+  when: supervisor_programs|length > 0

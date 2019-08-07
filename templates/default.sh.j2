@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo "Starting {{ item.program }}"
+
+{% if item.application_source_file is defined %}
+source {{ item.application_source_file }}
+{% endif %}
+
+{% if item.application_path is defined %}
+cd {{ item.application_path }}
+{% endif %}
+
+{% if item.execution is defined %}
+    {{ item.execution|indent(4) }}
+{% endif %}

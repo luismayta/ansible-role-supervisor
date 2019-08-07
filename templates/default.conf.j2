@@ -1,0 +1,27 @@
+[program:{{ item.program }}]
+
+command={{ item.command }}
+{% if item.user is defined %}
+user={{ item.user }}
+{% endif %}
+{% if item.directory is defined %}
+directory={{ item.directory }}
+{% endif %}
+
+; Files Logs
+stderr_logfile={{ _supervisor_path.logs }}/%(program_name)s.err.log
+stdout_logfile={{ _supervisor_path.logs }}/%(program_name)s.out.log
+; Supervisor will start as many instances of this program as named by numprocs
+numprocs={{ item.numprocs|default('1') }}
+autostart={{ item.autostart|default('true') }}
+autorestart={{ item.autorestart|default('true') }}
+startretries={{ item.startretries|default('3') }}
+startsecs={{ item.startsecs|default('10') }}
+priority={{ item.priority|default('998') }}
+; When resorting to send SIGKILL to the program to terminate it
+; send SIGKILL to its whole process group instead,
+; taking care of its children as well.
+killasgroup=true
+; Need to wait for currently executing tasks to finish at shutdown.
+; Increase this if you have very long running tasks.
+stopwaitsecs = 600

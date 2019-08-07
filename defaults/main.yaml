@@ -1,0 +1,24 @@
+---
+# defaults file for supervisor
+# example values
+supervisor_user: "{{user}}"
+supervisor_path_apps: "/home/{{user}}/supervisor"
+
+# supervisor_apps:
+#   - program: name
+#     application_path: /home/user/project/src
+#     application_source_file: {{ deployment_file_load_virtualenvwrapper }}
+#     execution: celery -A {{ app_name }} worker --loglevel=info
+
+# supervisor_programs:
+#   - program: name
+#     command: 'command'
+#     user: "user"
+#     directory: "directory"
+#     numprocs: 1
+#     instalautostart: true
+#     autorestart: true
+#     startsecs: 10
+#     priority: 990
+
+disabled_program: ''

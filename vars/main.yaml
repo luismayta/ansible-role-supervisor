@@ -1,0 +1,14 @@
+---
+
+# vars file for supervisor
+
+_supervisor_path:
+  tmp: "/var/tmp"
+  conf: "/etc/supervisor/conf.d"
+  logs: "/var/log/supervisor"
+
+_supervisor_create_files:
+  - path: "{{ supervisor_path_apps }}"
+    state: "directory"
+    # group: "root"
+    owner: "{{ supervisor_user }}"

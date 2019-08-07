@@ -1,0 +1,10 @@
+---
+
+- name: Create files supervisor
+  become: true
+  file:
+    path: "{{ item.path }}"
+    state: "{{ item.state }}"
+    # owner: "{{ item.owner }}"
+  with_items: "{{ _supervisor_create_files | default({}) }}"
+  when: _supervisor_create_files is defined

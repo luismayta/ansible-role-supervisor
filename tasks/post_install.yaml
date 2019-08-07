@@ -1,0 +1,34 @@
+---
+
+- name: add load applications to path
+  template: src=default.sh.j2 dest={{ supervisor_path_apps }}/{{ item.program }}.sh mode=0755
+  with_items: "{{ supervisor_apps | default([]) }}"
+  when:
+    - disabled_program is defined and item.program != "{{ disabled_program }}"
+    - supervisor_apps is defined
+
+- name: add program to supervisor
+  template: src=default.conf.j2 dest=/etc/supervisor/conf.d/{{ item.program }}.conf
+  with_items: "{{ supervisor_programs | default([]) }}"
+  when:
+    - supervisor_programs is defined
+    - disabled_program is defined and item.program != "{{ disabled_program }}"
+  notify: right-states-programs #We need to restart the program to use the new template
+
+- name: Add all the programs in supervisor if there are not present
+  supervisorctl: name={{ item.program }} state=present
+  with_items: "{{ supervisor_programs | default([]) }}"
+  when:
+    - supervisor_programs is defined
+    - disabled_program is defined and item.program != "{{ disabled_program }}"
+
+- name: "test"
+  command: "echo {{ disabled_program }}"
+  when: disabled_program is defined and disabled_program
+
+- name: Put all programs in the right state
+  supervisorctl: name={{ item.program }} state={{ item.state|default('restarted') }}
+  with_items: "{{ supervisor_programs | default([]) }}"
+  when:
+    - supervisor_programs is defined
+    - disabled_program is defined and item.program != "{{ disabled_program }}"
