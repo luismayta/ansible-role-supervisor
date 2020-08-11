@@ -4,6 +4,8 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+ansible-vault = "*"
+docker-compose = "*"
 ipdb = "*"
 ipython = "*"
 ansible-lint = "*"
@@ -16,10 +18,19 @@ tox = ">=2.9.1"
 PyHamcrest = ">=1.9.0"
 ansible = "*"
 docker-py = "*"
+bumpversion = "*"
+bumplus = "*"
 pre-commit = "*"
+doc8 = "*"
+restview = "*"
+rst = "*"
 
 [packages]
-restview = "*"
+
+
+[scripts]
+test = "pytest"
+update = "pre-commit autoupdate"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8.0"
