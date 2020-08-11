@@ -4,4 +4,4 @@
   # vars:
   #   example_var: {'key': 'value'}
   roles:
-    - {role: ansible-role-supervisor }
+    - { role: ansible-role-supervisor }

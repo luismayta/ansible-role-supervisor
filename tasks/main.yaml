@@ -1,5 +1,4 @@
 ---
-
 - include: common.yaml
 - include: files.yaml
 - include: configure.yaml

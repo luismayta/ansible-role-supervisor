@@ -15,12 +15,12 @@
 
 - name: right-states-programs
   supervisorctl: name={{ item.program }} state=stopped
-  with_items: "{{ supervisor_programs | default({}) }}"
+  with_items: '{{ supervisor_programs | default({}) }}'
   when: supervisor_programs|length > 0
   notify: restart-programs
   changed_when: true #We need to call restart-programs every time
 
 - name: restart-programs
   supervisorctl: name={{ item.program }} state={{ item.state|default('restarted') }}
-  with_items: "{{ supervisor_programs | default({}) }}"
+  with_items: '{{ supervisor_programs | default({}) }}'
   when: supervisor_programs|length > 0
