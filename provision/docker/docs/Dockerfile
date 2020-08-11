@@ -1,8 +1,8 @@
-FROM equipindustry/python:3.8.0-slim
+FROM sphinxdoc/docker-ci
 
 ARG stage
 
-LABEL NAME ansible-role-supervisor-app-$stage
+LABEL NAME ansible-role-postrgresql-doc
 
 ENV USERNAME developer
 
@@ -15,8 +15,12 @@ ENV PACKAGES bash \
   openssl \
   gcc \
   libgdal20 \
-  libev-dev
-
+  libev-dev \
+  curl \
+  wget \
+  tar \
+  zsh \
+  jq
 
 COPY Pipfile* /usr/src/
 
@@ -26,7 +30,6 @@ WORKDIR /usr/src/
 # install packages
 RUN apt-get update -y \
   && apt-get install -y ${PACKAGES} --no-install-recommends \
-
 
   # Permissions
   && groupadd -g 500 -r python \

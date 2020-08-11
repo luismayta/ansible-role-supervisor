@@ -1,12 +1,9 @@
-FROM python:3.7.3
-
-MAINTAINER Luis Mayta <@slovacus>
+FROM equipindustry/python:3.8.0-slim
 
 ARG stage
-ARG version
 LABEL NAME ansible-role-supervisor-check-$stage
 
-COPY Pipfile Pipfile.lock /usr/src/
+COPY Pipfile* /usr/src/
 
 # set working directory to /usr/src/
 WORKDIR /usr/src/
@@ -18,7 +15,8 @@ RUN apt-get update -y \
   shellcheck \
   # install python dependencies
   && pip3 install pipenv \
-  && pipenv install --dev \
+  && pipenv install --dev --skip-lock \
+  && pipenv shell --fancy \
   && apt-get purge \
   && apt-get autoremove -y \
   && rm -rf /var/lib/apt/lists/*

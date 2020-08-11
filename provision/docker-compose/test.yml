@@ -2,9 +2,8 @@
 # https://docs.docker.com/compose/
 #
 # Usage: test up
----
 
-version: "3.6"
+version: '3.6'
 services:
   app:
     image: ansible-role-supervisor-app-test
@@ -13,5 +12,3 @@ services:
     build:
       args:
         stage: test
-    volumes:
-      - .:/usr/src
