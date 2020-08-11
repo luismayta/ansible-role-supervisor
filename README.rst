@@ -1,7 +1,9 @@
-Ansible Role for Supervisor
+Ansible Role for SuperVisor
 ===========================
 
 |Build Status| |GitHub issues| |GitHub license|
+
+postgresql for ansible
 
 :Version: 0.0.0
 :Web: https://github.com/equipindustry/ansible-role-supervisor
@@ -12,28 +14,27 @@ Ansible Role for Supervisor
 .. contents:: Table of Contents:
     :local:
 
-Ansible Galaxy role for `Supervisor`_.
+A role for deploying and configuring
+`Supervisord <http://supervisord.org/>`__ and extensions on unix hosts
+using `Ansible <http://www.ansibleworks.com/>`__ It can additionally be
+used as a playbook for quickly provisioning hosts. Vagrant machines are
+provided to produce a boxed install of Supervisord or a VM for
+integration testing.
 
-Requirements:
-=============
+Supports
+--------
 
-List of applications:
 
-- `Python 3.7.3`_
-- `Docker`_
-- `Docker Compose`_
+Requirements
+------------
 
-Install
-=======
-
-Install it with the following command:
-
-.. code-block:: bash
-
-    $ ansible-galaxy install equipindustry.supervisor
+-  Linux
+-  none
+-  OSX
+-  `Homebrew <http://brew.sh/>`__ must be installed.
 
 Role Variables
-==============
+--------------
 
 The default role variables in ``defaults/main.yml`` are:
 
@@ -62,12 +63,12 @@ The default role variables in ``defaults/main.yml`` are:
 
 
 Dependencies
-============
+------------
 
 None
 
 Example Playbook
-================
+----------------
 
 See the `examples <./examples/>`__ directory.
 
@@ -81,55 +82,94 @@ this:
         - equipindustry.supervisor
 
 License
-=======
+-------
 
-Apache2
+The code in this repository is licensed under the Apache unless
+otherwise noted.
+
+Please see LICENSE_ for details.
 
 Changelog
-=========
+---------
 
 Please see `CHANGELOG`_ for more information what
 has changed recently.
 
 Contributing
-============
+------------
 
-Please see `CONTRIBUTING`_ for details.
+Contributions are welcome!
 
-Credits
-=======
+Review the `CONTRIBUTING`_ for details on how to:
 
--  `author`_
--  `contributors`_
+Versioning
+----------
 
-Made with :heart: :coffee: and :pizza: by `author`_ and `company`_.
+Releases are managed using bitbucket release feature. We use [Semantic Versioning](http://semver.org) for all
+the releases. Every change made to the code base will be referred to in the release notes (except for
+cleanups and refactorings).
 
-.. Badges:
 
-.. |Build Status| image:: https://travis-ci.org/equipindustry/ansible-role-supervisor.svg
-   :target: https://travis-ci.org/equipindustry/ansible-role-supervisor
-.. |Ansible Galaxy| image:: https://img.shields.io/badge/galaxy-equipindustry.supervisor-blue.svg
-   :target: https://galaxy.ansible.com/equipindustry/ansible-role-supervisor/
-.. |GitHub issues| image:: https://img.shields.io/github/issues/equipindustry/ansible-role-supervisor.svg
-   :target: https://github.com/equipindustry/ansible-role-supervisor/issues
-.. |Average time to resolve an issue| image:: http://isitmaintained.com/badge/resolution/equipindustry/ansible-role-supervisor.svg
-   :target: http://isitmaintained.com/project/equipindustry/ansible-role-supervisor
-.. |Percentage of issues still open| image:: http://isitmaintained.com/badge/open/equipindustry/ansible-role-supervisor.svg
-   :target: http://isitmaintained.com/project/equipindustry/ansible-role-supervisor
-.. |GitHub license| image:: https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square
-   :target: LICENSE
+Contact Info
+------------
+
+Feel free to contact me to discuss any issues, questions, or comments.
+
+* `Email`_
+* `Twitter`_
+* `GitHub`_
+* `LinkedIn`_
+* `Website`_
+* `PGP`_
+
+|linkedin| |beacon|
+
+Made with :coffee: and :pizza: by `Luis Mayta`_ and `equipindustry`_.
 
 .. Links
 .. _`changelog`: CHANGELOG.rst
-.. _`contributors`: AUTHORS
-.. _`contributing`: CONTRIBUTING.rst
+.. _`contributors`: docs/source/AUTHORS.rst
+.. _`contributing`: docs/source/CONTRIBUTING.rst
+.. _`LICENSE`: LICENSE
 
-.. _`company`: https://github.com/equipindustry
-.. _`author`: https://github.com/luismayta
+.. _`equipindustry`: https://github.com/equipindustry
+.. _`Luis Mayta`: https://github.com/luismayta
 
-.. dependences
-.. _Supervisor: https://www.supervisor.com
-.. _Python: https://www.python.org
-.. _Python 3.7.3: https://www.python.org/downloads/release/python-373
+
+.. _`Github`: https://github.com/luismayta
+.. _`Linkedin`: https://pe.linkedin.com/in/luismayta
+.. _`Email`: slovacus@gmail.com
+    :target: mailto:slovacus@gmail.com
+.. _`Twitter`: https://twitter.com/slovacus
+.. _`Website`: https://luismayta.github.io
+.. _`PGP`: https://keybase.io/luismayta/pgp_keys.asc
+
+.. |Build Status| image:: https://travis-ci.org/equipindustry/ansible-role-supervisor.svg
+   :target: https://travis-ci.org/equipindustry/ansible-role-supervisor
+.. |GitHub issues| image:: https://img.shields.io/github/issues/equipindustry/ansible-role-supervisor.svg
+   :target: https://github.com/equipindustry/ansible-role-supervisor/issues
+.. |GitHub license| image:: https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square
+   :target: LICENSE
+
+.. Team:
+.. |Luis Mayta| image:: https://github.com/luismayta.png?size=100
+   :target: https://github.com/luismayta
+
+.. Badges for images hub docker
+.. |MicroBadger| image:: https://images.microbadger.com/badges/image/equipindustry/python.svg
+   :target: http://microbadger.com/images/equipindustry/python
+.. |Docker Stars| image:: https://img.shields.io/docker/stars/equipindustry/python.svg?style=flat-square
+   :target: https://hub.docker.com/r/equipindustry/python
+.. |Docker Pulls| image:: https://img.shields.io/docker/pulls/equipindustry/python.svg?style=flat-square
+   :target: https://hub.docker.com/r/equipindustry/python
+
+.. Footer:
+.. |linkedin| image:: http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png
+   :target: https://pe.linkedin.com/in/luismayta
+.. |beacon| image:: https://ga-beacon.appspot.com/UA-65019326-1/github.com/equipindustry/ansible-role-supervisor/readme
+   :target: https://github.com/equipindustry/ansible-role-supervisor
+
+.. Dependences:
+
+.. _Pyenv: https://github.com/pyenv/pyenv
 .. _Docker: https://www.docker.com/
-.. _Docker Compose: https://docs.docker.com/compose/
