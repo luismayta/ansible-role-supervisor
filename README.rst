@@ -60,6 +60,8 @@ The default role variables in ``defaults/main.yml`` are:
         startsecs: 10
         priority: 990
         disabled_program: name program to disabled
+        supervisor_environment_dict:
+            ENVIRONMENT: 'VALUE1'
 
 
 Dependencies
